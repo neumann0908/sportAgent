@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.SportAgent" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.SportAgent" parent="Theme.Material3.Dark.NoActionBar">
         <item name="colorPrimary">@android:color/holo_green_dark</item>
         <item name="colorSecondary">@android:color/holo_green_light</item>
     </style>
