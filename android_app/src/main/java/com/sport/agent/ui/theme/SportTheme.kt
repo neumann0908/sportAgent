@@ -7,15 +7,21 @@ import androidx.compose.runtime.Composable
 private val SportColorScheme = darkColorScheme(
     primary = SportGreen,
     onPrimary = SportBackground,
+
     secondary = SportGreenLight,
     onSecondary = SportBackground,
+
     tertiary = SportBlue,
+
     background = SportBackground,
     onBackground = SportText,
+
     surface = SportSurface,
     onSurface = SportText,
+
     surfaceVariant = SportCard,
     onSurfaceVariant = SportTextSecondary,
+
     error = SportRed,
     onError = SportBackground
 )
