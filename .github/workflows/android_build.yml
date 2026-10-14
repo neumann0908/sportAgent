@@ -21,14 +21,10 @@ jobs:
         java-version: '17'
 
     - name: Grant execute permission for gradlew
-      run: |
-        cd android_app
-        chmod +x gradlew
+      run: chmod +x gradlew
 
     - name: Build Debug APK with Gradle
-      run: |
-        cd android_app
-        ./gradlew assembleDebug
+      run: ./gradlew :android_app:assembleDebug
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
