@@ -66,8 +66,9 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     
-    // Navegación con Compose
+    // Navegación y Hilt Integration
     implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     // Jetpack DataStore Preferences
     implementation("androidx.datastore:datastore-preferences:1.1.1")

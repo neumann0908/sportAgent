@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import com.sport.agent.ui.overview.OverviewScreen
 
 sealed class Screen(val route: String, val title: String, val icon: ImageVector) {
     object Overview : Screen("overview", "Overview", Icons.Default.Home)
@@ -73,17 +74,17 @@ fun AppNavigation() {
             contentAlignment = Alignment.Center
         ) {
             when (selectedRoute) {
-                Screen.Overview.route -> ScreenContent("Panel General (Overview)")
-                Screen.Deportes.route -> ScreenContent("Gestión de Deportes")
-                Screen.Inteligencia.route -> ScreenContent("Módulo de Inteligencia Artificial")
-                Screen.Predicciones.route -> ScreenContent("Panel de Predicciones Deportivas")
+                Screen.Overview.route -> OverviewScreen()
+                Screen.Deportes.route -> ScreenPlaceholder("Gestión de Deportes")
+                Screen.Inteligencia.route -> ScreenPlaceholder("Módulo de Inteligencia Artificial")
+                Screen.Predicciones.route -> ScreenPlaceholder("Panel de Predicciones Deportivas")
             }
         }
     }
 }
 
 @Composable
-fun ScreenContent(title: String) {
+fun ScreenPlaceholder(title: String) {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
