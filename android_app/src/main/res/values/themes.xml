@@ -1,0 +1,7 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.SportAgent" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Personalización básica del tema SportInteligent 2.0 -->
+        <item name="colorPrimary">@android:color/holo_green_dark</item>
+        <item name="colorSecondary">@android:color/holo_green_light</item>
+    </style>
+</resources>
