@@ -66,21 +66,14 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     
-    // Material Components para soportar temas XML de Material 3
     implementation("com.google.android.material:material:1.11.0")
-
-    // Navegación y Hilt Integration
     implementation("androidx.navigation:navigation-compose:2.7.7")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
-
-    // Jetpack DataStore Preferences
     implementation("androidx.datastore:datastore-preferences:1.1.1")
 
-    // Dagger Hilt
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-compiler:2.48")
 
-    // Retrofit y OkHttp
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
