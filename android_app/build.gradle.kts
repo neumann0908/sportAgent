@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application") version "8.2.2"
     id("org.jetbrains.kotlin.android") version "1.9.22"
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android") version "2.48"
 }
 
 android {
@@ -64,6 +66,14 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     
+    // Navegación con Compose
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+
+    // Dagger Hilt
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-compiler:2.48")
+
+    // Retrofit y OkHttp
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
