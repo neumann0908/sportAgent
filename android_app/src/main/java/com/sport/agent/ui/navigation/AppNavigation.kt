@@ -1,11 +1,12 @@
 package com.sport.agent.ui.navigation
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.SportsSoccer
-import androidx.compose.material.icons.filled.Psychology
-import androidx.compose.material.icons.filled.ShowChart
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -13,6 +14,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -40,98 +42,50 @@ private val navigationItems = listOf(
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
-
-    val backStackEntry by
-        navController.currentBackStackEntryAsState()
-
-    val currentRoute =
-        backStackEntry?.destination?.route
+    val backStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = backStackEntry?.destination?.route
 
     Scaffold(
         bottomBar = {
             NavigationBar {
                 navigationItems.forEach { item ->
-
-                    val selected =
-                        currentRoute == item.route
-
+                    val selected = currentRoute == item.route
                     NavigationBarItem(
                         selected = selected,
                         onClick = {
                             navController.navigate(item.route) {
-                                popUpTo(
-                                    navController.graph
-                                        .findStartDestination().id
-                                ) {
+                                popUpTo(navController.graph.findStartDestination().id) {
                                     saveState = true
                                 }
-
                                 launchSingleTop = true
                                 restoreState = true
                             }
                         },
                         icon = {
                             when (item.route) {
-                                "overview" -> Icon(
-                                    Icons.Default.Home,
-                                    contentDescription = item.label
-                                )
-
-                                "sports" -> Icon(
-                                    Icons.Default.SportsSoccer,
-                                    contentDescription = item.label
-                                )
-
-                                "intelligence" -> Icon(
-                                    Icons.Default.Psychology,
-                                    contentDescription = item.label
-                                )
-
-                                "predictions" -> Icon(
-                                    Icons.Default.ShowChart,
-                                    contentDescription = item.label
-                                )
-
-                                else -> Icon(
-                                    Icons.Default.Settings,
-                                    contentDescription = item.label
-                                )
+                                "overview" -> Icon(Icons.Default.Home, contentDescription = item.label)
+                                "sports" -> Icon(Icons.Default.List, contentDescription = item.label)
+                                "intelligence" -> Icon(Icons.Default.Star, contentDescription = item.label)
+                                "predictions" -> Icon(Icons.Default.Info, contentDescription = item.label)
+                                else -> Icon(Icons.Default.Settings, contentDescription = item.label)
                             }
                         },
-                        label = {
-                            Text(item.label)
-                        }
+                        label = { Text(item.label) }
                     )
                 }
             }
         }
     ) { padding ->
-
         NavHost(
             navController = navController,
             startDestination = "overview",
-            modifier = androidx.compose.ui.Modifier.padding(padding)
+            modifier = Modifier.padding(padding)
         ) {
-
-            composable("overview") {
-                OverviewScreen()
-            }
-
-            composable("sports") {
-                SportsScreen()
-            }
-
-            composable("intelligence") {
-                IntelligenceScreen()
-            }
-
-            composable("predictions") {
-                PredictionsScreen()
-            }
-
-            composable("settings") {
-                SettingsScreen()
-            }
+            composable("overview") { OverviewScreen() }
+            composable("sports") { SportsScreen() }
+            composable("intelligence") { IntelligenceScreen() }
+            composable("predictions") { PredictionsScreen() }
+            composable("settings") { SettingsScreen() }
         }
     }
 }
