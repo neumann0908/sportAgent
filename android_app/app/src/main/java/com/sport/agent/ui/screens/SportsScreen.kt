@@ -7,3 +7,4 @@ fun SportsScreen() {
     StatisticsScreen()
 }
 
+
