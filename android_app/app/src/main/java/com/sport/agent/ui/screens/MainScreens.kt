@@ -4,7 +4,12 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun OverviewScreen() {
-    // Pantalla de Overview
+    // Pantalla de Overview existente
+}
+
+@Composable
+fun SportsScreen() {
+    StatisticsScreen()
 }
 
 @Composable
