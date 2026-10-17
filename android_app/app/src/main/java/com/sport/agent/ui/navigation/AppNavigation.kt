@@ -8,6 +8,8 @@ import com.sport.agent.ui.screens.IntelligenceScreen
 import com.sport.agent.ui.screens.OverviewScreen
 import com.sport.agent.ui.screens.PredictionsScreen
 import com.sport.agent.ui.screens.SportsScreen
+import com.sport.agent.ui.screens.StatisticsScreen
+
 
 sealed class Screen(val route: String) {
     object Overview : Screen("overview")
@@ -34,5 +36,8 @@ fun AppNavigation(navController: NavHostController) {
         composable(Screen.Predictions.route) {
             PredictionsScreen()
         }
+        composable("sports") {
+            StatisticsScreen()}
+
     }
 }
